@@ -1,0 +1,84 @@
+ /* basic link stlyes */
+ a:link, a:visited { color: #000; }
+ a:hover { color: #F00; }
+ /*heading styles */
+ h1, h2, h3, h3, h4, h5, h6 { text-align: center;}
+ /* styles for the body */
+ body { background-color: #FFFFFF; background-image: url("img/bg.png"); background-repeat: repeat; }
+ /* Div Related Styles */
+ /** Style for the main content div (the one after you login) **/
+ div#content { 
+  #background-color: #FFFFFF;
+  -moz-border-radius: 15px; border-radius: 15px;
+  width: 1100px; min-height: 500px; 
+  moz-box-shadow: 0 0 10px #777; -webkit-box-shadow: 0 0 10px 7px #777; box-shadow: 0 0 10px 7px #777;
+  margin-top: 30px; margin-left: auto; margin-right: auto;
+  background-color: #FFF;
+ }
+ /* Style for when an error occurs */
+ div.error { 
+   color: #FFF; background-color: #F00;
+   -moz-border-radius: 5px; border-radius: 5px; 
+   width: 550px; margin: 0 auto;
+ }
+ 
+ div.form { padding-top: 30px; }
+ /* FOoter Style*/
+ div.footer {
+ -moz-border-radius: 15px; border-radius: 15px;
+  width: 1100px;
+  text-align: center;
+  padding: 3px;
+  moz-box-shadow: 0 0 10px #777; -webkit-box-shadow: 0 0 10px 7px #777; box-shadow: 0 0 10px 7px #777;
+  margin-top: 25px; margin-left: auto; margin-right: auto;
+  background-color: #FFF;
+ }
+ /* Login Box Style */
+ div.login { 
+  -moz-border-radius: 15px; border-radius: 15px; 
+  width: 600px; height: 400px; 
+  margin-top: 100px; margin-left: auto; margin-right: auto;
+  moz-box-shadow: 0 0 10px #777; -webkit-box-shadow: 0 0 10px 7px #777; box-shadow: 0 0 10px 7px #777;
+  background-color: #FFFFFF;
+  text-align: center; 
+ }
+ /* Navagation area style */
+ div#nav { 
+  background-image: url("img/nav-bg.png"); background-repeat: repeat-x; 
+  padding-top: 20px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;
+  width: 1090px; margin-left: auto; margin-right: auto; 
+  color: #FFFFFF; text-align: right;
+ }
+ div#nav a:link, div#nav a:visited { color: #FFFFFF; text-decoration: none; padding-left: 3px; padding-right: 3px; }
+ div#nav a:hover { color: #FFFFFF; text-decoration: underline; }
+ /* Style for when a success message is displayed */
+ div.success { 
+   color: #FFF; background-color: #0B0;
+   -moz-border-radius: 5px; border-radius: 5px; 
+   width: 450px; margin: 0 auto;
+ }
+ div#thanks { width: 350px; margin: 0 auto; }
+ div#thanks ul li { list-style-type: none; }
+ img#logo { width: 550px; height: 100px; margin: 0 auto; display: block; padding-top: 15px;}
+ /*Table Related Styles*/
+ table tr.tHeader td { border-bottom: 1px solid #000; }
+ table tr.data:hover { background: #009900; color: #FFFFFF; }
+ 
+ table.manageUser { width: 500px; margin: 0 auto; padding: 0px 5px; }
+ table.serverInfo { width: 1000px; margin: 0 auto; padding: 0px 5px; }
+ table#serverList { width: 1000px; margin: 0 auto; padding: 0px 5px; }
+ 
+ td:hover a, td:hover a:hover{ color: #FFF; text-decoration: none; border-bottom: 1px dashed #FFF; }
+ td:hover a:link { color: #FFF; border-bottom: 0px; text-decoration: underline; }
+ td:hover a.manage { color: #000; }
+ td a:hover.manage { color: #F00; }
+ td { text-align: center; }
+ /** View User Information **/
+ td.ip { width: 100px; }
+ td.manage { width: 100px; }
+ td.notesContent { text-align: left; }
+ td.steam { width: 150px; }
+ td.user { width: 100px; }
+ /** Update User Infromation **/
+ td.input { width: 300px; text-align: right; }
+ td.label { width: 200px; text-align: left; }

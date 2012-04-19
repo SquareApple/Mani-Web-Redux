@@ -1,0 +1,10 @@
+#.gitignore
+archive/
+archives/*
+nbproject/
+nbproject/*
+inc/config.php
+/archives
+/rcon.php
+*.komodoproject
+.directory
