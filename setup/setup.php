@@ -1,18 +1,26 @@
-<?php
-?>
 <!DOCTYPE html>
 <html>
  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Mani Web Redux - Setup</title>
-  <link rel="stylesheet" href="../styles.css"/>
+		<script type="text/javascript" src="../js/jquery.js"></script>
+		<script type="text/javascript" src="../js/validate.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				//Validate the config form
+				$("#config").validate();
+			});
+		</script>
+		<link rel="stylesheet" href="../styles.css"/>
 		<style type="text/css">
 			div#content { width: 700px; }
-			div#descript { width: 345px; text-align: right; }
+			div#descript { width: 345px; text-align: right; } 
 			div#input { width: 345px; float: right; }
 			div#nav { width: 690px; } 
-		 div.error { width: 95%; }
+			div.error { width: 95%; }
 			input#submit { text-align: center; }
+			label { font-size: 13pt; }
+			label.error{ color: #FF0000; }
 		</style>
  </head>
  <body>
@@ -27,13 +35,13 @@
 			?>
 			<br/>
 			<h3>Database Settings</h3>
-			<form method="POST" action="setup.php">
+			<form method="POST" action="setup.php" id="config" name="config">
 				<div id="input">
-					<input type="text" id="host" name="host" value="localhost"/><br/>
-					<input type="text" id="user" name="user"/><br/>
-					<input type="password" id="pass" name="pass"/><br/>
-					<input type="text" id="dbname" name="dbname" value="map_db"/><br/>
-					<input type="text" id="tblpre" name="tblpre" value="map_"br/>
+					<input type="text" id="host" name="host" value="localhost" class="required"/><br/>
+					<input type="text" id="user" name="user" class="required"/><br/>
+					<input type="password" id="pass" name="pass" class="required"/><br/>
+					<input type="text" id="dbname" name="dbname" value="map_db" class="required"/><br/>
+					<input type="text" id="tblpre" name="tblpre" value="map_" class="required"><br/>
 				</div>
 				<div id="descript">
 					Database Hostname:<br/>
