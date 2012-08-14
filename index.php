@@ -1,5 +1,6 @@
 <?php
  session_start();
+	if (!file_exists('inc/config.php')) header("Location: setup/setup.php");
  /* Uncomment the next line to enable error reporting for everything (almost) */
  #error_reporting(~E_ALL);
  
