@@ -1,4 +1,0 @@
-Todo List
-- setup area to configure the config file
-- documentation on the project
-- more robust rcon support
