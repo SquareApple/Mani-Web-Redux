@@ -1,7 +1,7 @@
  <div id="thanks">
   <h2>Current Team Members</h2>
   <ul>
-   <li>[TGUS] Leathal Master M - Developer</li>
+   <li>(STK) Lethal Master M - Lead Developer</li>
    <li>]Hell[ Nomy - QA Tester</li>
   </ul>
   <h2>Special Contributors</h2> 
