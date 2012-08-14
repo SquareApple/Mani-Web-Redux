@@ -29,11 +29,11 @@
 			<h3>Database Settings</h3>
 			<form method="POST" action="setup.php">
 				<div id="input">
-					<input type="text" id="host" name="host"/><br/>
+					<input type="text" id="host" name="host" value="localhost"/><br/>
 					<input type="text" id="user" name="user"/><br/>
 					<input type="password" id="pass" name="pass"/><br/>
-					<input type="text" id="dbname" name="dbname"/><br/>
-					<input type="text" id="tblpre" name="tblpre"/><br/>
+					<input type="text" id="dbname" name="dbname" value="map_db"/><br/>
+					<input type="text" id="tblpre" name="tblpre" value="map_"br/>
 				</div>
 				<div id="descript">
 					Database Hostname:<br/>
