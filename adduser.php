@@ -21,13 +21,30 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Mani Web Redux - Admin Panel</title>
   <link rel="stylesheet" href="styles.css"/>
+  <style type="text/css">
+	div#content { width: 700px; }
+	div#descript { width: 345px; text-align: right; line-height: 135%;} 
+	div#input { width: 345px; float: right; }
+	div#nav { width: 690px; } 
+	div.error { width: 75%; text-align: center; }
+	div.footer { width: 700px; }
+	div.success { width: 75%; text-align: center; }
+	input#submit { text-align: center; }
+	label { font-size: 13pt; }
+	label.error{ color: #FF0000; }
+  </style>
  </head>
  <body>
   <div id="content">
    <div id="nav">
     <?php require_once('inc/nav.inc.php'); ?>
    </div>
-   <?php
+   <?php 
+    if (isset($_GET['server'])) {
+	 if (isset($_GET['add'])) require_once('inc/user/add.php');
+	 else if (isset($_GET['del'])) require_once('inc/user/del.php');
+    } 
+	else require_once('inc/user/slist.php');
    ?>
   </div>
   <?php require_once('inc/footer.php');

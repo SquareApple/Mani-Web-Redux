@@ -146,6 +146,29 @@
     echo "<tr class=\"data\">\r\n<td>".$serverName."</td><td>".$serverIP.":".$serverPort."</td><td>*****</td><td><a href=\"index.php?servers=".$serverID."\">Manage</a></td>\r\n</tr>\r\n";
    }
   }
+  public function fetchServersForAdd($u) {
+   $r     = $this->query('SELECT * FROM  '.$this->prefix.'server');
+   $regex = '/(^r | r | r^)/';
+   while ($row = $this->assoc($r)) {
+    $s		      = $row['server_id'];
+	$serverName   = $row['name'];
+	$sGroup 	  = $this->getServerGroup($s);
+	if (!$sGroup == '') {
+	 $cGroup 	  = $this->getClientGroup($sGroup, $u);
+	 $cPrivs	  = $this->getClientPrivs($sGroup, $u);
+	 $level 	  = "none";
+	 $regex 	  = '/(^r | r | r$)/';
+	 if ($cGroup != '') {
+	  $gPrivs 	  = $this->getGroupPrivs($cGroup,$sGroup);
+	  if (preg_match($regex, $gPrivs)) $level = "rcon";
+	 }
+	 else if (preg_match($regex, $cPrivs)) $level = "rcon";
+	 if ($level == "rcon") {
+	  echo "<tr class=\"data\">\r\n<td>".$serverName."</td><td><a href=\"adduser.php?server=".$s."&add=yes\">Add</a></td>\r\n</tr>\r\n";
+	 }
+	}
+   }
+  }
   /* Get the servers in a group */
   public function fetchServersInGroup($group) {
    $r = $this->query("SELECT * FROM ".$this->prefix."server WHERE server_group_id = '".$group."'");
