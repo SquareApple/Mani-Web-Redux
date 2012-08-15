@@ -5,7 +5,7 @@
 		private $dbpass;
 		private $dbhost;
 		private $dbname;
-		private $prefix;
+		public $prefix;
 
 		/* Misc Stuff */
 		public $nQuery = 0;
@@ -178,6 +178,41 @@
 			}
 			return $servers;
 		}
+		/* Get a servers name */
+		public function fetchSName($s) {
+			$name = '';
+			$r = $this->query("SELECT name FROM ".$this->prefix."server WHERE server_id = '".$s."'");
+			if ($this->num_rows($r) == 0) return 0;
+			while ($row = $this->assoc($r)) {
+				$name = $row['name'];
+			}
+			return $name;
+		}
+		/* Fetch a List of Servers User Is Allowed to Use RCon On */
+		public function fetchRConList($u) {
+			$r = $this->query('SELECT * FROM  '.$this->prefix.'server');
+			$regex = '/(^r | r | r^)/';
+			while ($row = $this->assoc($r)) {
+				$serverID     = $row['server_id'];
+				$serverName   = $row['name'];
+				$serverIP     = $row['ip_address'];
+				$serverPort   = $row['port'];
+				$sGroup  = $row['server_group_id'];
+				if (!$sGroup == '') {
+					$cGroup       = $this->getClientGroup($sGroup, $u);
+					$cPrivs      = $this->getClientPrivs($sGroup, $u);
+					$level       = "none";
+					$regex       = '/(^r | r | r$)/';
+					if ($cGroup != '') {
+						$gPrivs       = $this->getGroupPrivs($cGroup,$sGroup);
+						if (preg_match($regex, $gPrivs)) $level = "rcon";
+					}
+					else if (preg_match($regex, $cPrivs)) $level = "rcon";
+					if ($level == "rcon") echo "<tr class=\"data\">\r\n<td>".$serverName."</td><td><a href=\"liveconsole.php?serv=".$serverID."\">RCon</a></td>\r\n</tr>\r\n";
+					else "<tr class=\"data\">\r\n<td>".$serverName."</td><td>No RCon</td>\r\n</tr>\r\n";
+				}
+			}
+		}
 		/* Client Functions */
 		/** Fetch a users steam id information **/
 		public function fetchSteam($u) {
@@ -318,7 +353,8 @@
 				$group = $row['server_group_id'];
 			}
 			return $group;
-			}
+		}
+		
 		/*Get the user name*/
 		public function userName($u) {
 			$name = '';
@@ -339,14 +375,14 @@
 				return 1;
 			}
 		/* Generic MySQL Functions */
-		private function assoc($q) {
+		public function assoc($q) {
 			return mysql_fetch_assoc($q);
 		}
-		private function query($q) {
+		public function query($q) {
 			$this->nQuery++;
 			return mysql_query($q);
 		}
-		private function num_rows($q) {
+		public function num_rows($q) {
 			return mysql_num_rows($q);
 		}	  
 	}

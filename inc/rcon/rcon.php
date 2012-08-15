@@ -49,7 +49,7 @@
    
    /* Open socket and connect */
    if (!$this->socket = fsockopen('tcp://'.$this->serverIP,$this->serverPort,$errno,$errstr, 30)) {
-    if (!$silent == 0) echo "Failed to open socket! Error Message: ". $errstr;
+    if (!$silent == 0) echo "<span class=\"error\">Failed to open socket! Error Message: ". $errstr."</span>";
     return 0;
    }
 
@@ -58,7 +58,7 @@
    
    /* Write the first part of the data that was read */
    if(!fwrite($this->socket,$data,strlen($data))) {
-    if (!$silent == 0) echo "Failed to write data (1)!";
+    if (!$silent == 0) echo "<span class=\"error\">Failed to write data (1)!</span>";
     return 0;
    }
    
@@ -69,14 +69,14 @@
    
    /* Handle the second part of the data to see if auth was reject */
    if (!$string = fread($this->socket,$this->packetSize)) {
-    if (!$silent == 0) echo "Failed to read the auth response! (2)";
+    if (!$silent == 0) echo "<span class=\"error\">Failed to read the auth response! (2)</span>";
     return 0;
    }
    $data   = substr($string,0,4); 
    $datas = unpack("Vvalue",$data);
    $id     = $datas['value'];
    if ($id == -1) {
-    if (!$silent == 0) echo "Auth failed!";
+    if (!$silent == 0) echo "<span class=\"error\">Auth failed!</span>";
     return 0;
    }
    

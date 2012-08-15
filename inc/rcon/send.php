@@ -1,11 +1,13 @@
 <?php
-	if (isset($_REQUEST['data'])) {
-		$serv = "1";
-		if (isset($_REQUEST['serv'])) $serv = trim($_REQUEST['serv']);
-		$data = trim($_REQUEST['data']);
-		require_once('rcon.php');
-		$rcon = new rcon;
-		$rcon->send($serv,$data);
+	if (isset($_POST['data'])) {
+		if (isset($_POST['serv'])) {
+			$serv = trim($_POST['serv']);
+			$data = trim($_POST['data']);
+			require_once('rcon.php');
+			$rcon = new rcon;
+			$rcon->send($serv, $data);
+		}
+		else echo "<span class=\"error\>Server ID not sent!</span>";
 	}
 ?>
 	

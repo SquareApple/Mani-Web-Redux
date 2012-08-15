@@ -52,6 +52,7 @@
  }
  div#nav a:link, div#nav a:visited { color: #FFFFFF; text-decoration: none; padding-left: 3px; padding-right: 3px; }
  div#nav a:hover { color: #FFFFFF; text-decoration: underline; }
+ div#rconList { margin: 0 auto; width: 500px; text-align: center; }
  /* Style for when a success message is displayed */
  div.success { 
    color: #FFF; background-color: #0B0;
