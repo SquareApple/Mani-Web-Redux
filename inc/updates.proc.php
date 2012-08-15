@@ -30,6 +30,10 @@
    $err = 1;
    $msg = "Did not receive the users Steam ID";
   }
+  else if (!isset($_POST['notes'])) { 
+	$err = 1;
+	$msg = "Did not receive notes for the user";
+  }
   else if (!isset($_POST['email'])) {
    $err = 1;
    $msg = "Did not receive the email address";
@@ -42,7 +46,7 @@
    $pass     = mysql_real_escape_string(trim($_POST['password']));
    $pass2    = mysql_real_escape_string(trim($_POST['password2']));
    $steam    = mysql_real_escape_string(trim($_POST['steam']));
-   
+   $notes	 = mysql_real_escape_string(trim($_POST['notes']));
    /* More Checks */
    if ($pass != $pass2) {
     $err = 1;
@@ -55,9 +59,15 @@
    else {
     /* Update the users information in the database */
     if ($sql->updateUser($userid, $pass, $email, $steam)) {
-     $suc = 1;
-     $msg = "Successfully Updated User Information";
-    }
+     if ($sql->updateNotes($userid, $notes)) {
+	  $suc = 1;
+	  $msg = "Successfully Updated User Information";
+	 } 
+	 else {
+	  $err = 1;
+	  $msg = "Failed to update notes"; 
+	 }
+	}
     else {
      $err = 1;
      $msg = "Failed to update user information!";

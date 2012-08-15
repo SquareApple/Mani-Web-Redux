@@ -160,12 +160,10 @@
   /* Client Functions */
   /** Fetch a users steam id information **/
   public function fetchSteam($u) {
-   $steam = array();
-   $i     = 0;
+   $steam = '';
    $r     = $this->query('SELECT * FROM '.$this->prefix.'steam WHERE user_id ="'.$u.'"');
    while ($row = $this->assoc($r)) {
-    $steam[$i] = $row['steam_id'];
-    $i++;
+    $steam= $row['steam_id'];
    }
    return $steam;
   }
@@ -177,6 +175,14 @@
     $email = $row['email'];
    }
    return $email;
+  }
+  public function fetchNotes($u) {
+	$notes = '';
+	$r = $this->query('SELECT * FROM '.$this->prefix.'client WHERE user_id="'.$u.'"');
+	while ($row = $this->assoc($r)) {
+	 $notes = $row['notes'];
+	}
+	return $notes;
   }
   /** Fetch Users Password **/
   public function fetchPass($u) {
@@ -305,9 +311,13 @@
   }
   /* Update User Information */
   public function updateUser($u, $p, $e, $s) {
-   if (!$this->query("UPDATE ".$this->prefix."client SET password='".$p."', email = '".$e."'  WHERE user_id='".$u."'")) return 0;
+   if (!$this->query("UPDATE ".$this->prefix."client SET password='".$p."', email = '".$e."' WHERE user_id='".$u."'")) return 0;
    if (!$this->query("UPDATE ".$this->prefix."steam SET steam_id =\"".$s."\" WHERE user_id = \"".$u."\"")) return 0;
    return 1;
+  }
+  public function updateNotes($u, $n) {
+	if (!$this->query("UPDATE ".$this->prefix."client SET notes = '".$n."' WHERE user_id='".$u."'")) return 0;
+	return 1;
   }
   /* Generic MySQL Functions */
   private function assoc($q) {

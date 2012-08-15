@@ -3,10 +3,10 @@
  /* check to see if the user is authroized to do this action */
  if (($uid == $user) || ($level == "rcon")) {
   /* Fetch user information to update things with */
-  $steam_ids = $sql->fetchSteam($user);
-  $steam_id  = $steam_ids[0];
+  $steam_id = $sql->fetchSteam($user);
   $pass      = $sql->fetchPass($user);
   $email     = $sql->fetchEmail($user);
+  $notes	 = $sql->fetchNotes($user);
   ?>
   <form name="update" id="update" method="POST" action="index.php?updates=user">
    <?php 
@@ -33,6 +33,10 @@
      <td class="label"><label for="email">Email</label></td>
      <td class="input"><?php echo "<input type=\"text\" name=\"email\" id=\"email\" value=\"".$email."\"/>"; ?></td>
     </tr>
+	<tr>
+	 <td class="label"><label for="notes">Notes:</label></td>
+	 <td class="input"><?php echo "<input type=\"text\" id=\"notes\" name=\"notes\" value=\"".$notes."\"/>"; ?></td>
+	</tr>
     <tr><td colspan="2" class="submit"><input type="submit" value="Update!"/></td></tr>
    </table>
   </from>
