@@ -1,6 +1,6 @@
 <?php
  session_start();
-	if (!file_exists('inc/config.php')) header("Location: setup/setup.php");
+ if (!file_exists('inc/config.php')) header("Location: setup/setup.php");
  /* Uncomment the next line to enable error reporting for everything (almost) */
  error_reporting(~E_ALL);
  
@@ -28,9 +28,8 @@
     <?php require_once('inc/nav.inc.php'); ?>
    </div>
    <?php
-    /* Direct to the apporpate section using GET information */
-    if (isset($_GET['users'])) require_once('inc/user.inc.php');
-    else if (isset($_GET['updates'])) require_once('inc/updates.proc.php');
-    else if (isset($_GET['team'])) require_once('thanks.php');
-    else require_once('inc/server.inc.php');  
-  ?>
+   ?>
+  </div>
+  <?php require_once('inc/footer.php');
+  
+	
