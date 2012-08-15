@@ -61,6 +61,10 @@
  div#thanks { width: 350px; margin: 0 auto; }
  div#thanks ul li { list-style-type: none; }
  img#logo { width: 550px; height: 100px; margin: 0 auto; display: block; padding-top: 15px;}
+ 
+ span.rconSend { color: #00FF00; font-style: italic; }
+ span.rconRecv { color: #0000FF; font-style: italic; }
+ 
  /*Table Related Styles*/
  table tr.tHeader td { border-bottom: 1px solid #000; }
  table tr.data:hover { background: #009900; color: #FFFFFF; }

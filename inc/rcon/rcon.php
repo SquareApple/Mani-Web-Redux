@@ -25,7 +25,7 @@
   private function parse(&$s) {
    $junk = substr($s,0,1);
    $s    = substr($s,1);
-   if ($r = preg_replace("/(\r\n|\n)/","<br/><-",$s)) return $r;
+   if ($r = preg_replace("/(\r\n|\n)/","<br/>",$s)) return $r;
    else return 0;
   }
   
@@ -37,7 +37,7 @@
    $id   = 0;
    
    /*Connect to mysql database and pull rcon info */
-   require_once('inc/mysql.class.php');
+   require_once('../mysql.class.php');
    $sql        = new sql;
    $serverInfo = array();
    $serverInfo = $sql->getRConInfo($server);
@@ -92,12 +92,12 @@
    
    $i = 0;
    
-   if (!$silent == 0) echo "->".$command."<br/>";
+   if (!$silent == 0) echo "<span class=\"rconSend\">".$command."</span><br/>";
    
    /* Read RCon Feedback */
    while ($string = fread($this->socket,$this->packetSize)) {
     if ($str = $this->parse($string)) $string = $str;
-    if (!$silent == 0) echo ' '.$string;
+    if (!$silent == 0) echo "<span class=\"rconRecv\">".$string."</span>";
     return 1;
     
    }
