@@ -162,7 +162,7 @@
 					}
 					else if (preg_match($regex, $cPrivs)) $level = "rcon";
 					if ($level == "rcon") {
-						echo "<tr class=\"data\">\r\n<td>".$serverName."</td><td><a href=\"adduser.php?server=".$s."&add=yes\">Add</a></td>\r\n</tr>\r\n";
+						echo "<tr class=\"data\">\r\n<td>".$serverName."</td><td><a href=\"user.php?server=".$s."&add=yes\">Add</a></td>\r\n</tr>\r\n";
 					}
 				}
 			}
@@ -208,7 +208,7 @@
 						if (preg_match($regex, $gPrivs)) $level = "rcon";
 					}
 					else if (preg_match($regex, $cPrivs)) $level = "rcon";
-					if ($level == "rcon") echo "<tr class=\"data\">\r\n<td>".$serverName."</td><td><a href=\"liveconsole.php?serv=".$serverID."\">RCon</a></td>\r\n</tr>\r\n";
+					if ($level == "rcon") echo "<tr class=\"data\">\r\n<td>".$serverName."</td><td><a href=\"console.php?serv=".$serverID."\">RCon</a></td>\r\n</tr>\r\n";
 					else "<tr class=\"data\">\r\n<td>".$serverName."</td><td>No RCon</td>\r\n</tr>\r\n";
 				}
 			}

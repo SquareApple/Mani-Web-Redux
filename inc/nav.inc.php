@@ -2,8 +2,8 @@
 <?php 
 	if (($level == "rcon") || ($level == "admin")) {
 		echo " | ";
-		echo "<a href=\"liveconsole.php\">RCon</a>";
-		echo " <a href=\"adduser.php\">Add New User</a>";
+		echo "<a href=\"console.php\">RCon</a>";
+		echo " <a href=\"user.php\">Add New User</a>";
 	}
 	echo ' | <a href="index.php?users='.$uid.'&update=yes">Update Account Info</a> | '; 
 ?>
