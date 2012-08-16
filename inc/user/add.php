@@ -1,5 +1,7 @@
 <?php 
- $sID = $_GET['server'];
+	$sID = $_GET['server'];
+	$added = 0;
+	if (isset($_POST['uName'])) require_once('inc/user/proc.add.php');
 ?>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/validate.js"></script>
@@ -10,10 +12,15 @@ $(document).ready(function() {
 });
 </script>
 <h2>Add New User To Server ID <?php echo $sID; ?></h2>
-<form name="addUser" method="POST">
+<?php 
+
+	echo '<form name="addUser" method="POST" action="user.php?add=yes&server='.$sID.'">';
+	echo "<input type='hidden' value='".$sID."' name='servID' id='servID'/>";
+?>
 <div id="input">
  <input type="text" id="uName" name="uName" class="required"/><br/>
  <input type="password" id="pass" name="pass"/><br/>
+ <input type="text" id="email" name="email"/><br/>
  <select name="aGroup" id="aGroup">
   <option value="rcon">Admin</option>
   <option value="user" selected="selected">User</option>
@@ -28,6 +35,7 @@ $(document).ready(function() {
 <div id="descript">
 Username:<br/>
 Password:<br/>
+Email:<br/>
 Admin Group:<br/>
 Immunity Group:<br/>
 SteamID:<br/>
@@ -36,5 +44,5 @@ Notes:<br/>
 <div style="margin: 0 auto; width: 50px;">
  <input type="submit" value="Add User" id="submit"/>
 </div>
-
+</form>
 	
