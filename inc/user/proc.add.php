@@ -24,7 +24,7 @@
 		$sql->query('INSERT INTO '.$sql->prefix.'client_group (user_id, server_group_id, group_id, type) VALUES ("'.$uID.'","'.$sGroup.'","'.$aGroup.'", "Admin")') or die(mysql_error());
 		$sql->query('INSERT INTO '.$sql->prefix.'client_group (user_id, server_group_id, group_id, type) VALUES ("'.$uID.'","'.$sGroup.'","'.$iGroup.'", "Immunity")') or die(mysql_error());
 		if($uSteam != '') $sql->query('INSERT INTO '.$sql->prefix.'steam (user_id, steam_id) VALUES ("'.$uID.'","'.$uSteam.'")') or die(mysql_error());
-		echo "User added! Please issue \"ma_client download\" on all servers in this group via RCon!";
+		echo "<div class=\"success\"><h3>User added!<br/>Please issue \"ma_client download\" on all servers in this group via RCon!</h3></div>";
 	}
 ?>
 	
