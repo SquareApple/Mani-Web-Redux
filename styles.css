@@ -81,7 +81,7 @@
  td { text-align: center; }
  /** View User Information **/
  td.ip { width: 100px; }
- td.manage { width: 100px; }
+ td.manage { width: 200px; }
  td.notesContent { text-align: left; }
  td.steam { width: 150px; }
  td.user { width: 100px; }

@@ -43,11 +43,12 @@
     if (isset($_GET['server'])) {
 		if (isset($_GET['add'])) require_once('inc/user/add.php');
 		else if (isset($_GET['del'])) {
-			if (isset($_GET['uid'])) {
-				require_once('inc/user/proc.del.php');
+			$type = $_GET['del'];
+			$allowed = array('confirm','yes');
+			if (in_array($type,$allowed)) {
+				if ((isset($_GET['uid'])) && ($type == 'confirm')) require_once('inc/user/confirm.del.php');
+				else if ((isset($_GET['uid'])) && ($type == 'yes')) require_once('inc/user/proc.del.php');
 			}
-			else echo "<h1>Coming Soon</h1>";
-			#require_once('inc/user/del.php');
 		}
 	}
 	else require_once('inc/user/slist.php');

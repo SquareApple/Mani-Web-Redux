@@ -124,7 +124,7 @@
 						$steam = $row2['steam_id']; 
 						$ip    = $row2['ip_address'];
 						$uid   = $row2['user_id'];
-						echo "<tr class=\"data\">\r\n<td><a title=\"Email: ".$email."\"a>".$name."</a></td><td>".$ip."</td><td>".$steam."</td><td class=\"notesContent\">".$notes."</td><td><a href=\"index.php?users=".$uid."\">Manage</a></td>\r\n</tr>";
+						echo "<tr class=\"data\">\r\n<td><a title=\"Email: ".$email."\"a>".$name."</a></td><td>".$ip."</td><td>".$steam."</td><td class=\"notesContent\">".$notes."</td><td><a href=\"index.php?users=".$uid."\">Manage</a> | <a href='user.php?uid=".$uid."&server=".$s."&del=confirm'>Delete</a></td>\r\n</tr>";
 					}
 				}
 				else echo "<tr class=\"data\" colspan=\"5\">\r\n<td><h4>No Users Found</h4></td>\r\n</tr>";     
@@ -162,7 +162,7 @@
 					}
 					else if (preg_match($regex, $cPrivs)) $level = "rcon";
 					if ($level == "rcon") {
-						echo "<tr class=\"data\">\r\n<td>".$serverName."</td><td><a href=\"adduser.php?server=".$s."&add=yes\">Add</a></td>\r\n</tr>\r\n";
+						echo "<tr class=\"data\">\r\n<td>".$serverName."</td><td><a href=\"user.php?server=".$s."&add=yes\">Add</a></td>\r\n</tr>\r\n";
 					}
 				}
 			}
