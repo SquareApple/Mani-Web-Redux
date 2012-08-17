@@ -41,12 +41,16 @@
    </div>
    <?php 
     if (isset($_GET['server'])) {
-	 if (isset($_GET['add'])) require_once('inc/user/add.php');
-	 else if (isset($_GET['del'])) require_once('inc/user/del.php');
-    } 
+		if (isset($_GET['add'])) require_once('inc/user/add.php');
+		else if (isset($_GET['del'])) {
+			if (isset($_GET['uid'])) {
+				require_once('inc/user/proc.del.php');
+			}
+			else echo "<h1>Coming Soon</h1>";
+			#require_once('inc/user/del.php');
+		}
+	}
 	else require_once('inc/user/slist.php');
    ?>
   </div>
-  <?php require_once('inc/footer.php');
-  
-	
+  <?php require_once('inc/footer.php'); ?>
