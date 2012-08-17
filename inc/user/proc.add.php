@@ -19,7 +19,6 @@
 		$uData = $sql->query('SELECT * FROM '.$sql->prefix.'client WHERE name = "'.$uName.'"') or die(mysql_error());
 		$row = $sql->assoc($uData);
 		$uID = $row['user_id'];
-		echo "userID:".$uID."<br/>";
 		$sql->query('INSERT INTO '.$sql->prefix.'client_server (user_id, server_group_id) VALUES ("'.$uID.'","'.$sGroup.'")') or die(mysql_error());
 		$sql->query('INSERT INTO '.$sql->prefix.'client_group (user_id, server_group_id, group_id, type) VALUES ("'.$uID.'","'.$sGroup.'","'.$aGroup.'", "Admin")') or die(mysql_error());
 		$sql->query('INSERT INTO '.$sql->prefix.'client_group (user_id, server_group_id, group_id, type) VALUES ("'.$uID.'","'.$sGroup.'","'.$iGroup.'", "Immunity")') or die(mysql_error());
