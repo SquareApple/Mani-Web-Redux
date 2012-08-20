@@ -2,7 +2,7 @@
  session_start();
 	if (!file_exists('inc/config.php')) header("Location: setup/setup.php");
  /* Uncomment the next line to enable error reporting for everything (almost) */
- error_reporting(~E_ALL);
+ #error_reporting(~E_ALL);
  
  /* Check to see if the admin session is setup, and if it is set some values */
  if (!isset($_SESSION['mani_admin'])) header("Location: login.php");
